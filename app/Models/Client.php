@@ -1,14 +1,20 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Concerns\HasCode;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Database\Factories\ClientFactory;
 
 class Client extends Model
 {
     use HasCode;
+    use HasFactory;
+    protected static function newFactory()
+    {
+        return ClientFactory::new();
+    }
 
     public static string $codePrefix = 'Cli';
 

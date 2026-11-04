@@ -1,14 +1,19 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Concerns\HasCode;
+use Database\Factories\FournisseurFactory;
 
 class Fournisseur extends Model
 {
     use HasCode;
-
+    use HasFactory;
+    protected static function newFactory()
+    {
+        return FournisseurFactory::new();
+    }
     public static string $codePrefix = 'Fr';
 
     protected $primaryKey = 'code_fournisseur';
