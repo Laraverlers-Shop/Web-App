@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
     public function index()
     {
-        return view('clients.index');
+        $clients = Client::orderBy('code_client')->get();
+
+        return view('clients.index', compact('clients'));
     }
 
     public function create()

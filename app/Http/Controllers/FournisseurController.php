@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fournisseur;
 use Illuminate\Http\Request;
 
 class FournisseurController extends Controller
 {
     public function index()
     {
-        return view('fournisseurs.index');
+        $fournisseurs = Fournisseur::orderBy('code_fournisseur')->get();
+
+        return view('fournisseurs.index', compact('fournisseurs'));
     }
 
     public function create()
