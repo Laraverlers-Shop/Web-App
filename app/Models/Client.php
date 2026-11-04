@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\Concerns\HasCode;
+use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
     use HasCode;
 
     public static string $codePrefix = 'Cli';
+
+    protected $table = 'clients';
 
     protected $primaryKey = 'code_client';
 
