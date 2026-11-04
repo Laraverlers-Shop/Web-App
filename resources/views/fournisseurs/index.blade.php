@@ -8,10 +8,6 @@
             <i class="ti ti-plus"></i> Nouveau fournisseur
         </a>
 
-        @if (session('success'))
-        <div class="alert alert-success"><i class="ti ti-circle-check"></i> {{ session('success') }}</div>
-        @endif
-
         @if ($fournisseurs->isEmpty())
             <div class="alert alert-info">
                 <i class="ti ti-information"></i> Aucun fournisseur n'a été trouvé.

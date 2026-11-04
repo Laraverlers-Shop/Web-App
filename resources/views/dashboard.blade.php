@@ -3,7 +3,6 @@
 @section('title', 'Dashboard')
 
 @section('content')
-
 <!-- Statistics Grid Cards -->
 <div class="stats-grid">
     <!-- Clients Card -->
