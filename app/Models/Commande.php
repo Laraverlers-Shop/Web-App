@@ -1,14 +1,21 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Concerns\HasCode;
+use Database\Factories\CommandeFactory;
 
 class Commande extends Model
 {
     use HasCode;
+    use HasFactory;
 
+    protected static function newFactory()
+    {
+        return CommandeFactory::new();
+    }
     public static string $codePrefix = 'Com';
 
     protected $primaryKey = 'numero_commande';
