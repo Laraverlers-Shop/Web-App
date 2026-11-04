@@ -30,7 +30,25 @@
                 <a href="{{ route('commandes.index') }}" class="{{ request()->routeIs('commandes.*') ? 'active' : '' }}">
                     <i class="ti ti-shopping-cart"></i> Commandes
                 </a>
+
+                
             </nav>
+
+            <!-- Logout Button -->
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <i class="ti ti-user-circle" style="font-size: 24px;"></i>
+                    <span class="user-name">{{ Auth::user()->name ?? 'Utilisateur' }}</span>
+                </div>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn-sidebar-logout" title="Déconnexion">
+                        <i class="ti ti-logout"></i>
+                    </button>
+                </form>
+            </div>
+
         </aside>
 
         <main class="main">
