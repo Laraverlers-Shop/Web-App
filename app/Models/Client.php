@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Concerns\HasCode;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Client extends Model
 {
@@ -25,10 +26,17 @@ class Client extends Model
         'code_postal_client',
         'ville_client',
         'type_client',
-        'remise_speciale'
+        'remise_speciale',
     ];
 
-    public function commandes()
+    protected function casts(): array
+    {
+        return [
+            'remise_speciale' => 'integer',
+        ];
+    }
+
+    public function commandes(): HasMany
     {
         return $this->hasMany(Commande::class, 'code_client');
     }
