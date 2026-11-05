@@ -18,7 +18,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->count(5)->create();
+        User::factory()->create([
+            'name' => 'Abdrahman',
+            'email' => 'abdrahman@gmail.com',
+            'password' => bcrypt('password'),
+        ]);
+
         Client::factory()->count(10)->create();
         Fournisseur::factory()->count(5)->create();
         Produit::factory()->count(25)->create();
