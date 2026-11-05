@@ -45,6 +45,7 @@
             @endforeach
             </tbody>
         </table>
+        {{ $fournisseurs->links() }}
         @endif
     </div>
 @endsection
