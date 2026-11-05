@@ -3,18 +3,18 @@
 @section('title', 'Fournisseurs')
 
 @section('content')
-    <div class="card">
-        <a href="#" class="btn btn-primary" style="margin-bottom: 16px; display: inline-block;">
-            <i class="ti ti-plus"></i> Nouveau fournisseur
-        </a>
+<div class="card">
+    <a href="{{ route('fournisseurs.create')}}" class="btn btn-primary" style="margin-bottom: 16px; display: inline-block;">
+        <i class="ti ti-plus"></i> Nouveau fournisseur
+    </a>
 
-        @if ($fournisseurs->isEmpty())
-            <div class="alert alert-info">
-                <i class="ti ti-information"></i> Aucun fournisseur n'a été trouvé.
-            </div>
-        @else
-        <table class="table">
-            <thead>
+    @if ($fournisseurs->isEmpty())
+    <div class="alert alert-info">
+        <i class="ti ti-information"></i> Aucun fournisseur n'a été trouvé.
+    </div>
+    @else
+    <table class="table">
+        <thead>
             <tr>
                 <th>Code</th>
                 <th>Nom</th>
@@ -25,8 +25,8 @@
                 <th>Contact</th>
                 <th>Actions</th>
             </tr>
-            </thead>
-            <tbody>
+        </thead>
+        <tbody>
             @foreach ($fournisseurs as $fournisseur)
             <tr>
                 <td>{{ $fournisseur->code_fournisseur }}</td>
@@ -36,16 +36,33 @@
                 <td>{{ $fournisseur->pays_fournisseur ?? '-' }}</td>
                 <td>{{ $fournisseur->tel_fournisseur ?? '-' }}</td>
                 <td>{{ $fournisseur->contact_fournisseur ?? '-' }}</td>
-                <td>
-                    <a href="#" class="btn btn-primary" style="padding: 4px 8px; font-size: 12px;">Voir</a>
-                    <a href="#" class="btn btn-warning" style="padding: 4px 8px; font-size: 12px;">Modifier</a>
-                    <a href="#" class="btn btn-danger" style="padding: 4px 8px; font-size: 12px;">Supprimer</a>
+                <td style="text-align: right; white-space: nowrap;" class="action-icons">
+                    <a href="{{ route('fournisseurs.show', $fournisseur->code_fournisseur) }}" title="Voir">
+                        <i class="ti ti-eye"></i>
+                    </a>
+
+                    <a href="{{ route('fournisseurs.edit', $fournisseur->code_fournisseur) }}"
+                        title="Modifier" style="color: var(--warning);">
+                        <i class="ti ti-edit"></i>
+                    </a>
+
+                    <form action="{{ route('fournisseurs.destroy', $fournisseur->code_fournisseur) }}"
+                        method="POST" style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" title="Supprimer"
+                            style="background: none; border: none; padding: 0; cursor: pointer; color: var(--danger);"
+                            onclick="return confirm('Voulez-vous vraiment supprimer ce fournisseur ?')">
+                            <i class="ti ti-trash"></i>
+                        </button>
+                    </form>
                 </td>
             </tr>
             @endforeach
-            </tbody>
-        </table>
-        {{ $fournisseurs->links() }}
-        @endif
-    </div>
+        </tbody>
+    </table>
+    {{ $fournisseurs->links() }}
+    @endif
+</div>
 @endsection

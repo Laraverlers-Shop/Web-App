@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="card" style="max-width: 1000px;">
-    <form action="#" method="POST" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+    <form action="" method="POST" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
         @csrf
         @method('PUT')
         <div style="grid-column: 1 / -1;">

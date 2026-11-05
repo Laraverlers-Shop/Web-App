@@ -31,7 +31,7 @@ class ProduitController extends Controller
 
     public function edit(string $id)
     {
-        return view('produits.form.edit');
+        return view('produits.edit');
     }
 
     public function update(Request $request, string $id)

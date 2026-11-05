@@ -31,7 +31,7 @@ class ClientController extends Controller
 
     public function edit(string $id)
     {
-        return view('clients.form.edit');
+        return view('clients.edit');
     }
 
     public function update(Request $request, string $id)

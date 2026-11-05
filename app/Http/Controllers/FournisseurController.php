@@ -31,7 +31,7 @@ class FournisseurController extends Controller
 
     public function edit(string $id)
     {
-        return view('fournisseurs.form.edit');
+        return view('fournisseurs.edit');
     }
 
     public function update(Request $request, string $id)

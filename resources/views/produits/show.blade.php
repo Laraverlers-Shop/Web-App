@@ -11,8 +11,8 @@
             <div style="margin-top: 6px;">Fournisseur : Fournisseur Alpha (Fr-000001)</div>
         </div>
         <div style="display: flex; gap: 8px;">
-            <a href="{{ route('produits.form.edit') }}" class="btn btn-warning"><i class="ti ti-pencil"></i> Modifier</a>
-            <a href="{{ route('produits.index') }}" class="btn" style="background: var(--border); color: var(--text);">Retour</a>
+            <a href="#" class="btn btn-warning"><i class="ti ti-pencil"></i> Modifier</a>
+            <a href="#" class="btn" style="background: var(--border); color: var(--text);">Retour</a>
         </div>
     </div>
 </div>
