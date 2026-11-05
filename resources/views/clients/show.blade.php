@@ -1,38 +1,20 @@
 @extends('layouts.app')
-
 @section('title', 'Fiche client')
-
 @section('content')
-<div class="card" style="margin-bottom: 16px;">
-    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
-        <div>
-            <h2 style="margin: 0 0 8px;">SARL Atlas <span style="color: var(--text-muted); font-size: 14px;">(Cli-000001)</span></h2>
-            <div>123 Rue Principale, 46000 Safi</div>
-            <div style="margin-top: 6px;">Type : PU | Remise : 5 %</div>
-        </div>
-        <div style="display: flex; gap: 8px;">
-            <a href="#" class="btn btn-warning"><i class="ti ti-pencil"></i> Modifier</a>
-            <a href="#" class="btn" style="background: var(--border); color: var(--text);">Retour</a>
-        </div>
-    </div>
-</div>
 <div class="card">
-    <h3 style="margin-top: 0;">Commandes du client</h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>N° Commande</th>
-                <th>Date</th>
-                <th>Condition</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Com-000001</td>
-                <td>2026-10-15</td>
-                <td>LIV</td>
-            </tr>
-        </tbody>
-    </table>
+    <h2>{{ $client->nom_client }} <small>({{ $client->code_client }})</small></h2>
+    <p>{{ $client->rue_client }}, {{ $client->code_postal_client }} {{ $client->ville_client }}</p>
+    <p>Type : {{ $client->type_client }} | Remise : {{ $client->remise_speciale }} %</p>
+    <a href="{{ route('clients.edit', $client->code_client) }}" class="btn btn-warning">Modifier</a>
+    <a href="{{ route('clients.index') }}" class="btn">Retour</a>
+</div>
+<div class="card"><h3>Commandes du client</h3>
+    <table class="table"><thead><tr><th>Numéro</th><th>Date</th><th>Condition</th></tr></thead><tbody>
+        @forelse ($client->commandes as $commande)
+            <tr><td><a href="{{ route('commandes.show', $commande->numero_commande) }}">{{ $commande->numero_commande }}</a></td><td>{{ $commande->date_commande }}</td><td>{{ $commande->condition }}</td></tr>
+        @empty
+            <tr><td colspan="3">Aucune commande.</td></tr>
+        @endforelse
+    </tbody></table>
 </div>
 @endsection
