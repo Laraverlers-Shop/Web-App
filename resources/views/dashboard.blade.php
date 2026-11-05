@@ -68,7 +68,7 @@
                     <th>Client</th>
                     <th>Condition</th>
                     <th>Total</th>
-                    <th style="text-align: right;">Actions</th>
+                    <!-- <th style="text-align: right;">Actions</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -85,11 +85,11 @@
                         @endif
                     </td>
                     <td style="font-weight: 600;">{{ number_format($commande->total ?? 450.00, 2) }} MAD</td>
-                    <td style="text-align: right;" class="action-icons">
+                    <!-- <td style="text-align: right;" class="action-icons">
                         <a href="#" title="View"><i class="ti ti-eye"></i></a>
                         <a href="#" title="Edit" style="color: var(--warning);"><i class="ti ti-edit"></i></a>
                         <a href="#" title="Delete" style="color: var(--danger);"><i class="ti ti-trash"></i></a>
-                    </td>
+                    </td> -->
                 </tr>
                 @empty
                 <tr>
